@@ -1,0 +1,34 @@
+function ScorePassword($pass){	
+
+	$score = 0;
+	
+	if(!$pass){
+		return $score;
+	}
+	
+	$letters = array();
+	
+	for($i = 0; $i < strlen($pass); $i++){
+		
+		$letters[$pass[$i]] = ($letters[$pass[$i]] ?? 0) + 1;
+		$score += 5.0 / $letters[$pass[$i]];
+	}
+	
+	$variations = array(
+		'digits' => preg_match("/\d/", $pass),
+		'lower' => preg_match("/[a-z]/", $pass),
+		'upper' => preg_match("/[A-Z]/", $pass),
+		'nonwords' => preg_match("/\W/", $pass)
+	);
+	
+	$varicount = 0;
+	
+	foreach($variations as $val){		
+		$varicount += ($val ? 1 :0);		
+	}
+	
+	$score += ($varicount - 1) * 10;
+	
+	return intval($score);
+	
+}
