@@ -2,4 +2,5 @@
 Password strength calculator in Javascript and PHP
 
 
-Both functions, in PHP and in Javascript, calculate the score in the same way, thus facilitating a frontend and backend check.
+Both functions, in PHP and Javascript, calculate the score in the same way.
+Thus facilitating the verification of frontend and backend.
